@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:tress/components/bottom_nav_bar.dart';
 import 'package:tress/pages/cart_page.dart';
@@ -30,6 +32,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: Colors.grey[300],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: Builder(
+          builder:(context) => IconButton(
+            onPressed: (){
+              Scaffold.of(context).openDrawer();
+            }, 
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,)),
+        )
+      ),
+      drawer: Drawer(),
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigateBottomNavBar(index),
       ),
