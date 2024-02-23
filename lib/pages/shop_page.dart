@@ -1,7 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:tress/shared_widgets/dropdown_menu.dart';
+import 'package:tress/components/category_filter.dart';
+import 'package:tress/components/products/product_grid.dart';
+import 'package:tress/components/dropdown/dropdown_menu.dart';
+import 'package:tress/components/dropdown/multiselect_dropdown.dart';
+import 'package:tress/components/search_widget.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -18,78 +22,40 @@ class _ShopPageState extends State<ShopPage> {
        
            
         //Search bar
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Search", style: TextStyle(
-                    color: Colors.grey,
-                  ),),
-                  Icon(Icons.search, color: Colors.grey,)
-                ],
-              ),
-            ),
+      SearchWidget(),
+      
+      SizedBox(height: 8,),
+
+      //Sort
+      Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 14),
+      child: Row(
+        children: [
+          Flexible(
+            child: MultiSelectDropdown(
+            items: ['Item1', 'Item2', 'Item3'], 
+            onSelectionChange: (
+              selectedItems
+              ) {  },
+
+            )
           ),
-        ),
-        SizedBox(height: 8,),
+          Flexible(
+            child: DropDownMenu(
+            defaultText: "Sort Items", 
+            items: ["Low to high", "High to low"], 
+            onSelected: (selected){
+            }),
+          ),           
+        ],
+      ),
+    ),
 
-        //Message
-        // Padding(
-        //   padding: const EdgeInsets.symmetric(vertical: 20),
-        //   child: Text("Find your perfect tress, embrace your confidence.",
-        //   style: TextStyle(color: Colors.grey[700]),),
-        // ),
+    //Categories Filter
+      CategoryFilter(),
 
-         //Sort
-          Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14),
-          child: Row(
-            children: [
-             Flexible(
-               child: DropDownMenu(
-                defaultText: "Sort", 
-                items: ["Low to high", "High to low"], 
-                onSelected: (selected){
-                }),
-             ),
-              Flexible(
-               child: DropDownMenu(
-                defaultText: "Sort", 
-                items: ["Low to high", "High to low"], 
-                onSelected: (selected){
-                }),
-             )
-            ],
-          ),
-        ),
-
-
-
-
-
-        //Categories
-         Container(
-          height: 50,
-          padding: EdgeInsets.symmetric(horizontal: 14),
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 5,
-            itemBuilder:(context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(5),
-                child: Chip(label: Text("Category")),
-              );
-            },),
-        ),
+      //Products
+      ProductGrid()
 
         
       ],

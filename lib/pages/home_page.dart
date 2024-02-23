@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:tress/components/bottom_nav_bar.dart';
 import 'package:tress/pages/cart_page.dart';
+import 'package:tress/pages/product_detail_page.dart';
 import 'package:tress/pages/shop_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,7 +26,8 @@ class _HomePageState extends State<HomePage> {
   //Pages display
   final List<Widget> _pages = [
     ShopPage(),
-    CartPage()
+    CartPage(),
+    ProductDetailPage()
   ];
 
   @override
@@ -43,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               Icons.menu,
               color: Colors.black,)),
         ),
-        title: Text("Tress Hair Store"),
+        title: Text("Tress Hair Store", style: TextStyle(fontWeight: FontWeight.bold),),
         centerTitle: true,
         actions: [
           Padding(

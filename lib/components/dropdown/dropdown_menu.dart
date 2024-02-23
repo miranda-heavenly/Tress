@@ -2,6 +2,9 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
+//Copied from Pub.dev -> dropdown_button2 -> Simple DropdownButton2 with no styling: //
+//////////////////////////////////////////////////////////////////////////////////////
+
 class DropDownMenu extends StatelessWidget {
    String? selectedValue;
    String defaultText;
@@ -26,7 +29,6 @@ class DropDownMenu extends StatelessWidget {
             hint: Text(
               defaultText,
               style: TextStyle(
-                fontSize: 12,
                 color: Theme.of(context).hintColor,
               ),
             ),
