@@ -9,7 +9,7 @@ class AppTextHeading extends StatelessWidget {
   AppTextHeading({
     Key? key,
     required this.text,
-    this.color = Colors.deepPurple,
+    this.color = const Color.fromRGBO(74, 20, 140, 1),
     this.size = 16,
     this.weight = FontWeight.bold
   }) : super(key: key);

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:tress/widgets/app_button.dart';
+import 'package:tress/widgets/app_text_heading.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -21,42 +23,43 @@ class IntroPage extends StatelessWidget {
              SizedBox(height: 50,),
            
             //title
-            Text("More than just hair, it's you!",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20
-            ),),
+             AppTextHeading(text:"More than just hair, it's you!", size: 18,
+            ),
            SizedBox(height: 10,),
            
             //subtitle
-             Text("Luxurious tresses for the discerning woman.",
-             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: Colors.grey,
-            ),),
+             AppTextHeading(text: "Luxurious tresses for the discerning woman.",
+              color:  Colors.grey,
+            ),
            SizedBox(height: 50,),
             
             //CTA button
-            GestureDetector(
-              onTap: () => Navigator.pushNamed(context, "/home"),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(12)
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Center(
-                    child: Text("Shop Now",
-                    style: TextStyle(
-                      color: Colors.white
-                    ),),
-                  ),
-                ),
-              ),
-            )
+            AppButton(
+              onPressed: (){
+                Navigator.pushNamed(context, "/register");
+              }, 
+              text: "Start Shopping")
+
+            // GestureDetector(
+            //   onTap: () => Navigator.pushNamed(context, "/register"),
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //       color: Colors.grey[900],
+            //       borderRadius: BorderRadius.circular(12)
+            //     ),
+            //     child: Padding(
+            //       padding: const EdgeInsets.all(20),
+            //       child: Center(
+            //         child: Text("Start Shopping",
+            //         style: TextStyle(
+            //           color: Colors.white
+            //         ),),
+            //       ),
+            //     ),
+            //   ),
+            // )
+           
+           
            ],
           ),
         ),

@@ -10,7 +10,7 @@ class PageTitle extends StatelessWidget {
     Key? key,
     required this.text,
     this.color = Colors.black,
-    this.size = 16,
+    this.size = 22,
     this.weight = FontWeight.bold
   }) : super(key: key);
 
